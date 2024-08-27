@@ -50,3 +50,18 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Individual object files
+c01/clwc
+c01/c2f
+c01/cc
+c01/ccb
+c01/cl
+c01/f2c
+c01/f2cb
+c01/f2cc
+c01/f2cd
+c01/gpc
+c01/gpcb
+c01/hello
+c01/printeof
