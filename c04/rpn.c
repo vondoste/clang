@@ -26,29 +26,32 @@ int main() {
 
     while ((type = getop(s)) != EOF) {
         switch (type) {
-            case NUMBER:
-                push(atof(s));
-                break;
-            case '+':
-                push(pop() + pop());
-                break;
-            case '*':
-                push(pop() * pop());
-                break;
-            case '-':
-                op2 = pop();
-                push(pop() - op2);
-                break;
-            case '/':
-                op2 = pop();
-                if (op2 != 0.0)
-                    push(pop() / op2);
-                else
-                    printf("error: zero divisor\n");
-                break;
-            case '\n':
-                printf("\t%.8g\n", pop());
-                break;
+        case NUMBER:
+            push(atof(s));
+            break;
+        case '+':
+            push(pop() + pop());
+            break;
+        case '*':
+            push(pop() * pop());
+            break;
+        case '-':
+            op2 = pop();
+            push(pop() - op2);
+            break;
+        case '/':
+            op2 = pop();
+            if (op2 != 0.0)
+                push(pop() / op2);
+            else
+                printf("error: zero divisor\n");
+            break;
+        case '\n':
+            printf("\t%.8g\n", pop());
+            break;
+        default:
+            printf("error: unknown command %s\n", s);
+            break;
         }
     }
     return 0;
@@ -94,11 +97,13 @@ int getop(char s[]) {
     return NUMBER;
 }
 
-int getch(void) {       /* get a (possibly pushed back) character */
-    return (bufp >= 0) ? buf[--bufp] : getchar();
+/* getch: get a (possibly pushed back) character */
+int getch(void) {
+    return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-void ungetch(int c){    /* push character back on input */
+/* ungetch: push character back on input */
+void ungetch(int c) {
     if (bufp >= BUFSIZE)
         printf("ungetch: too many characters\n");
     else
