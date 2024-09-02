@@ -79,5 +79,8 @@ c03/atoi
 c03/trim
 
 c04/find
+c04/rpn
+c04/atof
+c04/calc
 
 c05/pointer
