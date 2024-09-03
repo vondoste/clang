@@ -82,5 +82,12 @@ c04/find
 c04/rpn
 c04/atof
 c04/calc
+c04/main
+c04/getch
+c04/getop
+c04/printd
+c04/main
+c04/stack
+
 
 c05/pointer
